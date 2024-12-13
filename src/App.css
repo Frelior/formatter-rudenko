@@ -32,6 +32,19 @@
   opacity: 0;
 }
 
+.github {
+  position: absolute;
+  top: 0;
+  left: 1%;
+}
+.github a {
+  text-decoration: none;
+  color: rgb(196, 151, 255);
+}
+.github a:hover {
+  text-decoration: underline;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
