@@ -51,7 +51,13 @@ function App() {
         />
         {copied && <p id="copied">Copied!</p>}
         <p className="github">
-          <a href="https://github.com/Frelior/formatter-rudenko">github</a>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://github.com/Frelior/formatter-rudenko"
+          >
+            github
+          </a>
         </p>
         <p>Just click on the output area to copy the formatted text</p>
       </header>
