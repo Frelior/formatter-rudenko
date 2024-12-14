@@ -1,5 +1,4 @@
 import { useState, useRef } from "react"
-import "./App.css"
 
 function App() {
   const [inputText, setInputText] = useState("")
@@ -31,7 +30,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Text Formatter</h1>
+        <h1>Keywords Formatter</h1>
         <label htmlFor="input">Input apollo keywords:</label>
         <textarea
           className="input"

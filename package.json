@@ -2,7 +2,7 @@
   "name": "formatter-rudenko",
   "version": "0.1.0",
   "private": true,
-"homepage": "https://frelior.github.io/formatter-rudenko",
+  "homepage": "https://frelior.github.io/formatter-rudenko",
   "dependencies": {
     "cra-template": "1.2.0",
     "react": "^19.0.0",
