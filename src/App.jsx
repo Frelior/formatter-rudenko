@@ -1,9 +1,10 @@
-import { useState } from "react"
+import { useState, useRef } from "react"
 import "./App.css"
 
 function App() {
   const [inputText, setInputText] = useState("")
   const [copied, setCopied] = useState(false)
+  const inputRef = useRef(null)
 
   const formatText = (text) => {
     return text.split("\n").join(", ")
@@ -15,12 +16,12 @@ function App() {
 
   const handleOutputClick = () => {
     navigator.clipboard
-      .writeText(formatText(inputText))
+      .writeText(inputRef.current.textContent)
       .then(() => {
         setCopied(true)
         setTimeout(() => {
           setCopied(false)
-        }, 1000) // Скрыть сообщение через 2 секунды
+        }, 1000)
       })
       .catch((err) => {
         alert("Failed to copy text: " + err)
@@ -31,7 +32,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Text Formatter</h1>
-        <label htmlFor="input">Input:</label>
+        <label htmlFor="input">Input apollo keywords:</label>
         <textarea
           className="input"
           id="input"
@@ -39,16 +40,28 @@ function App() {
           value={inputText}
           onChange={handleInputChange}
         />
-        <label htmlFor="output">Output:</label>
-        <textarea
+        <label htmlFor="output">
+          <p>
+            Output:
+            <span
+              id="copied"
+              className={copied ? "trigger" : ""}
+            >
+              Copied!
+            </span>
+          </p>
+        </label>
+        <div
+          ref={inputRef}
           className="input"
           id="output"
           rows="10"
-          value={formatText(inputText)}
           readOnly
           onClick={handleOutputClick}
-        />
-        {copied && <p id="copied">Copied!</p>}
+        >
+          {formatText(inputText)}
+        </div>
+
         <p className="github">
           <a
             target="_blank"
@@ -58,7 +71,14 @@ function App() {
             github
           </a>
         </p>
-        <p>Just click on the output area to copy the formatted text</p>
+        <p>
+          <p>↑↑↑</p>Just click on the output area to copy the formatted text
+        </p>
+        <hr style={{ width: "50%" }} />
+        <p>
+          Set english language to translate keywords<p>↓↓↓</p>
+        </p>
+        <div id="google_translate_element"></div>
       </header>
     </div>
   )

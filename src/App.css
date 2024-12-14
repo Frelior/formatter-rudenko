@@ -20,16 +20,31 @@
     opacity: 0;
   }
 }
+p {
+  margin: 0;
+}
 #copied {
+  opacity: 0;
+}
+#copied.trigger {
   animation: fadeOut 1s ease-in-out forwards;
 }
 .fade-out {
   opacity: 1;
   transition: opacity 1s ease-out;
 }
-
 .fade-out {
   opacity: 0;
+}
+
+label p {
+  margin: 0;
+  position: relative;
+}
+label p span {
+  position: absolute;
+  top: 0;
+  left: 110%;
 }
 
 .github {
@@ -58,10 +73,22 @@
 .input {
   width: 50%;
   min-height: 100px;
+  max-height: 200px;
+  overflow-y: scroll;
   border-radius: 8px;
   text-align: start;
 }
-
+#output {
+  border: 1px solid white;
+  cursor: pointer;
+  font-size: 23px;
+}
+#output:hover {
+  box-shadow: 0 0 10px 0px white;
+}
+#output:active {
+  box-shadow: 0 0 4px 0px white;
+}
 .App-link {
   color: #61dafb;
 }
