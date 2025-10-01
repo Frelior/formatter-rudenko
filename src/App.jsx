@@ -3,10 +3,18 @@ import { useState, useRef } from "react"
 function App() {
   const [inputText, setInputText] = useState("")
   const [copied, setCopied] = useState(false)
+  const [technologiesToggled, setTechnologiesToggled] = useState(false)
   const inputRef = useRef(null)
 
   const formatText = (text) => {
     return text.split("\n").join(", ")
+  }
+
+  const formatTextTech = (text) => {
+    return text
+      .split("\n")
+      .filter((_, i) => i % 2 === 0)
+      .join(", ")
   }
 
   const handleInputChange = (e) => {
@@ -27,11 +35,39 @@ function App() {
       })
   }
 
+  const toggleTechnologies = () => {
+    setTechnologiesToggled(!technologiesToggled)
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Keywords Formatter</h1>
-        <label htmlFor="input">Input apollo keywords:</label>
+        <h1>Apollo Formatter</h1>
+        <div className="toggle-box">
+          <p
+            className={`name kw-name ${!technologiesToggled ? "active" : ""}`}
+            title="Changes line breaks to commas"
+            onClick={toggleTechnologies}
+          >
+            Keywords
+          </p>
+          <div
+            className={`toggler  ${technologiesToggled ? "toggler-on" : ""}`}
+            onClick={toggleTechnologies}
+          >
+            <div className="toggler-point"></div>
+          </div>
+          <p
+            className={`name tech-name ${technologiesToggled ? "active" : ""}`}
+            title="Deletes every second line and replaces line breaks with commas"
+            onClick={toggleTechnologies}
+          >
+            Technologies
+          </p>
+        </div>
+        <label htmlFor="input">{`Input apollo ${
+          technologiesToggled ? "technologies" : "keywords"
+        }:`}</label>
         <textarea
           className="input"
           id="input"
@@ -58,7 +94,9 @@ function App() {
           readOnly
           onClick={handleOutputClick}
         >
-          {formatText(inputText)}
+          {technologiesToggled
+            ? formatTextTech(inputText)
+            : formatText(inputText)}
         </div>
 
         <p className="github">
