@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/formatter-rudenko/static/css/main.e7e7de4b.css",
-    "main.js": "/formatter-rudenko/static/js/main.4772f444.js",
+    "main.css": "/formatter-rudenko/static/css/main.1ffd2c7b.css",
+    "main.js": "/formatter-rudenko/static/js/main.e228ee7b.js",
     "index.html": "/formatter-rudenko/index.html",
-    "main.e7e7de4b.css.map": "/formatter-rudenko/static/css/main.e7e7de4b.css.map",
-    "main.4772f444.js.map": "/formatter-rudenko/static/js/main.4772f444.js.map"
+    "main.1ffd2c7b.css.map": "/formatter-rudenko/static/css/main.1ffd2c7b.css.map",
+    "main.e228ee7b.js.map": "/formatter-rudenko/static/js/main.e228ee7b.js.map"
   },
   "entrypoints": [
-    "static/css/main.e7e7de4b.css",
-    "static/js/main.4772f444.js"
+    "static/css/main.1ffd2c7b.css",
+    "static/js/main.e228ee7b.js"
   ]
 }
