@@ -54,6 +54,98 @@
   justify-content: flex-start;
   font-size: calc(10px + 2vmin);
   color: white;
+  position: relative;
+
+  .toggle-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    .name {
+      color: gray;
+      transition: all 0.2s ease-in-out;
+      cursor: help;
+      position: relative;
+    }
+
+    .kw-name {
+      &::before {
+        position: absolute;
+        content: "?";
+        left: -15%;
+        top: -50%;
+        width: 26px;
+        height: 26px;
+        border: 2px solid white;
+        border-radius: 50%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 22px;
+
+        scale: 0.7;
+      }
+    }
+    .tech-name {
+      &::before {
+        position: absolute;
+        content: "?";
+        right: -15%;
+        top: -50%;
+        width: 26px;
+        height: 26px;
+        border: 2px solid white;
+        border-radius: 50%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 22px;
+
+        scale: 0.7;
+      }
+    }
+
+    .name.active {
+      text-decoration: underline;
+      color: rgb(151, 193, 255);
+    }
+  }
+
+  .toggler {
+    width: 64px;
+    height: 32px;
+    background-color: gray;
+    border-radius: 16px;
+    padding: 0 3px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+    position: relative;
+
+    &.toggler-on {
+      background-color: rgb(151, 175, 255);
+    }
+    .toggler-point {
+      width: 28px;
+      height: 28px;
+      background-color: white;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 5%;
+      transform: translate(0, -50%);
+      transition: all 0.2s ease-in-out;
+
+      .toggler.toggler-on & {
+        left: 55%;
+      }
+    }
+  }
 }
 .input {
   width: 50%;
